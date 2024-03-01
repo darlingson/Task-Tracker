@@ -2,13 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
-  const name = "Darlingson";
   return (
-    <SafeAreaView>
-      <View style={{height:100, width:100, backgroundColor: 'orange',}}>
-        <Text>Hello World</Text>
-        <Text>{name}</Text>
-        <Text>Welcome to react native</Text>
+    <SafeAreaView style={styles.wrapper}>
+      <View style={styles.container}>
+        <Text style={styles.titleText}>Task Tracker</Text>
+        <Text style={styles.taskContainer}>Today's Tasks</Text>
+        <Text style={styles.taskContainer}>Upcoming Tasks for the week</Text>
+        <Text style={styles.taskContainer}>Upcoming Tasks for the month</Text>
     </View>
     </SafeAreaView>
   );
@@ -17,8 +17,19 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#22f',
     alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center',
   },
+  wrapper: {
+    flex: 1,
+  },
+  taskContainer: {
+    color:'black',
+    fontSize: 20,
+  },
+  titleText: {
+    fontSize: 48,
+    color: 'black',
+  }
 });
