@@ -1,12 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-
+import { Button, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 export default function HomeComponent({navigation}) {
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
         <Text style={styles.titleText}>Task Tracker</Text>
-        <Text style={styles.taskContainer}>Today's Tasks</Text>
+        <View>
+            <Text style={styles.taskContainer}>Today's Tasks</Text>
+            <Button title="Weekly Tasks" onPress={() => navigation.navigate('WeeklyTasks')}/>
+        </View>
         <Text style={styles.taskContainer}>Upcoming Tasks for the week</Text>
         <Text style={styles.taskContainer}>Upcoming Tasks for the month</Text>
     </View>

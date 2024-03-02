@@ -1,24 +1,20 @@
-import { View, StyleSheet, SafeAreaView } from "react-native"
-import HomeComponent from "./src/components/HomeComponent"
-import { NavigationContainer } from "@react-navigation/native"
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeComponent from './src/components/HomeComponent';
+import WeeklyTasks from './src/components/WeeklyTasks';
 
-const App = () => {
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
     <NavigationContainer>
-    <SafeAreaView style={styles.wrapper}>
-      <View style={styles.container}>
-        <HomeComponent/>
-      </View>
-    </SafeAreaView>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeComponent} />
+        <Stack.Screen name="WeeklyTasks" component={WeeklyTasks} />
+      </Stack.Navigator>
     </NavigationContainer>
-  )
+  );
 }
-const styles = StyleSheet.create({
-  container : {
-    flex : 1
-  },
-  wrapper: {
-    flex: 1,
-  }
-})
-export default App
+
+export default App;
