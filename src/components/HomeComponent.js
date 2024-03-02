@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
-export default function HomeComponent() {
+export default function HomeComponent({navigation}) {
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
