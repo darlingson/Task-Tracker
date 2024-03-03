@@ -7,8 +7,8 @@ import { useState } from 'react';
 export default function HomeScreen({navigation}) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const handleModal = () => setIsModalVisible(!isModalVisible);
-  const [text, onChangeText] = useState('Useless Text');
-  const [number, onChangeNumber] = useState('');
+  const [taskName, onChangeTaskName] = useState('');
+  const [taskStatus, onChangeTaskStatus] = useState('');
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
@@ -50,15 +50,16 @@ export default function HomeScreen({navigation}) {
             <View>
             <TextInput
               style={styles.input}
-              onChangeText={onChangeText}
-              value={text}
+              onChangeText={onChangeTaskName}
+              value={taskName}
+              placeholder='Task Name'
             />
             <TextInput
               style={styles.input}
-              onChangeText={onChangeNumber}
-              value={number}
-              placeholder="useless placeholder"
-              keyboardType="numeric"
+              onChangeText={onChangeTaskStatus}
+              value={taskStatus}
+              placeholder="Task Status"
+              keyboardType="default"
             />
             </View>
             <View style={styles.modalButtonRowStyle}>
