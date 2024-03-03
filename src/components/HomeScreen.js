@@ -22,7 +22,7 @@ export default function HomeScreen({navigation}) {
         <TouchableOpacity
                 style={{ 
                     borderWidth: 1, 
-                    borderColor: 'red', 
+                    borderColor: 'lightgreen', 
                     alignItems: 'center', 
                     justifyContent: 'center', 
                     width: 70, 
@@ -30,7 +30,7 @@ export default function HomeScreen({navigation}) {
                     top: 390, 
                     right: 20, 
                     height: 70, 
-                    backgroundColor: 'red', 
+                    backgroundColor: 'lightgreen', 
                     borderRadius: 100,
                     marginTop:200
                 }} 
@@ -46,7 +46,7 @@ export default function HomeScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#22f',
+    backgroundColor: '#1178d8',
     alignItems: 'center',
   },
   wrapper: {
