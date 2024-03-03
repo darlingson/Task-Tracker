@@ -16,38 +16,38 @@ export default function HomeScreen({navigation}) {
           <Button style={styles.taskSectItem} title=">" onPress={() => navigation.navigate('WeeklyTasks')}/>
         </View>
         <View style={styles.taskSect}>
-            <Text style={styles.taskSectItem}>Upcoming Tasks for the week</Text>
-            <Button style={styles.taskSectItem} title=">" onPress={() => navigation.navigate('WeeklyTasks')}/>
+          <Text style={styles.taskSectItem}>Upcoming Tasks for the week</Text>
+          <Button style={styles.taskSectItem} title=">" onPress={() => navigation.navigate('WeeklyTasks')}/>
         </View>
         <View style={styles.taskSect}>
           <Text style={styles.taskSectItem}>Upcoming Tasks for the month</Text>
           <Button style={styles.taskSectItem} title=">" onPress={() => navigation.navigate('MonthlyTasks')}/>
         </View>
         <TouchableOpacity
-                style={{ 
-                    borderWidth: 1, 
-                    borderColor: 'lightgreen', 
-                    alignItems: 'center', 
-                    justifyContent: 'center', 
-                    width: 70, 
-                    position: 'absolute', 
-                    top: 390, 
-                    right: 20, 
-                    height: 70, 
-                    backgroundColor: 'lightgreen', 
-                    borderRadius: 100,
-                    marginTop:200
-                }} 
-                onPress={() => {handleModal()}} 
-            > 
-                <Text style={{ color: "white" }}>+</Text> 
-            </TouchableOpacity>
-            <Modal isVisible={isModalVisible}>
-        <View style={{ flex: 1 }}>
-          <Text>Hello!</Text>
-          <Button title="Hide modal" onPress={handleModal} />
-        </View>
-      </Modal>
+          style={{ 
+            borderWidth: 1, 
+            borderColor: 'lightgreen', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            width: 70, 
+            position: 'absolute', 
+            top: 390, 
+            right: 20, 
+            height: 70, 
+            backgroundColor: 'lightgreen', 
+            borderRadius: 100,
+            marginTop:200
+            }} 
+            onPress={() => {handleModal()}} 
+        > 
+        <Text style={{ color: "white" }}>+</Text> 
+        </TouchableOpacity>
+        <Modal isVisible={isModalVisible}>
+          <View style={{ flex: 1 }}>
+            <Text>Hello!</Text>
+            <Button title="Hide modal" onPress={handleModal} />
+          </View>
+        </Modal>
     </View>
     </SafeAreaView>
   );
