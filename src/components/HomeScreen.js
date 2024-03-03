@@ -2,7 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import { Button, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Modal from "react-native-modal";
+import { useState } from 'react';
 export default function HomeScreen({navigation}) {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleModal = () => setIsModalVisible(!isModalVisible);
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
@@ -34,10 +38,16 @@ export default function HomeScreen({navigation}) {
                     borderRadius: 100,
                     marginTop:200
                 }} 
-                onPress={() => { alert('Button is pressed') }} 
+                onPress={() => {handleModal()}} 
             > 
                 <Text style={{ color: "white" }}>+</Text> 
-            </TouchableOpacity> 
+            </TouchableOpacity>
+            <Modal isVisible={isModalVisible}>
+        <View style={{ flex: 1 }}>
+          <Text>Hello!</Text>
+          <Button title="Hide modal" onPress={handleModal} />
+        </View>
+      </Modal>
     </View>
     </SafeAreaView>
   );
