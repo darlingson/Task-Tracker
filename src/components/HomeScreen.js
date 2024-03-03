@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Modal from "react-native-modal";
@@ -7,6 +7,8 @@ import { useState } from 'react';
 export default function HomeScreen({navigation}) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const handleModal = () => setIsModalVisible(!isModalVisible);
+  const [text, onChangeText] = useState('Useless Text');
+  const [number, onChangeNumber] = useState('');
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
@@ -45,9 +47,23 @@ export default function HomeScreen({navigation}) {
         <Modal isVisible={isModalVisible}>
           <View style={styles.modalStyle}>
             <Text>Hello!</Text>
+            <View>
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeText}
+              value={text}
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeNumber}
+              value={number}
+              placeholder="useless placeholder"
+              keyboardType="numeric"
+            />
+            </View>
             <View style={styles.modalButtonRowStyle}>
-              <Button title="Cancel" onPress={handleModal} />
-              <Button title="Add Task" onPress={handleModal} />
+              <Button title="Cancel" color='red' onPress={handleModal} />
+              <Button title="Add Task" color='green' onPress={handleModal} />
             </View>
           </View>
         </Modal>
@@ -109,5 +125,11 @@ const styles = StyleSheet.create({
     width: '100%',
     borderColor: 'black',
     borderWidth: 1,    
-  }
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
 });
