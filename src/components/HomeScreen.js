@@ -43,9 +43,12 @@ export default function HomeScreen({navigation}) {
         <Text style={{ color: "white" }}>+</Text> 
         </TouchableOpacity>
         <Modal isVisible={isModalVisible}>
-          <View style={{ flex: 1 }}>
+          <View style={styles.modalStyle}>
             <Text>Hello!</Text>
-            <Button title="Hide modal" onPress={handleModal} />
+            <View style={styles.modalButtonRowStyle}>
+              <Button title="Cancel" onPress={handleModal} />
+              <Button title="Add Task" onPress={handleModal} />
+            </View>
           </View>
         </Modal>
     </View>
@@ -90,5 +93,21 @@ const styles = StyleSheet.create({
     // borderColor: 'gray',
     padding: 10,
     margin: 5,
+  },
+  modalStyle :{
+    flex : 1,
+    width: '100%',
+    justifyContent:'center',
+    borderColor:'black',
+    borderWidth:1,
+    backgroundColor:'#1178d8'
+  },
+  modalButtonRowStyle:{
+    flexDirection: 'row', // Arrange items horizontally
+    flexWrap: 'wrap', // Allow items to wrap to the next row
+    justifyContent: 'space-between', // Add space between items
+    width: '100%',
+    borderColor: 'black',
+    borderWidth: 1,    
   }
 });
