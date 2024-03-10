@@ -8,6 +8,7 @@ export default function HomeScreen({navigation}) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const handleModal = () => setIsModalVisible(!isModalVisible);
   const [taskName, onChangeTaskName] = useState('');
+  const [taskDate, onChangeTaskDate] = useState('');
   const [taskStatus, onChangeTaskStatus] = useState('');
   return (
     <SafeAreaView style={styles.wrapper}>
@@ -55,6 +56,12 @@ export default function HomeScreen({navigation}) {
               onChangeText={onChangeTaskName}
               value={taskName}
               placeholder='Task Name'
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeTaskDate}
+              value={taskDate}
+              placeholder="Task Date"
             />
             <TextInput
               style={styles.input}
