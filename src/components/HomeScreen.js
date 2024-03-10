@@ -4,12 +4,25 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Modal from "react-native-modal";
 import { useState } from 'react';
+import {useList} from '../context/ListContext'
 export default function HomeScreen({navigation}) {
+  const {addToList} = useList();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const handleModal = () => setIsModalVisible(!isModalVisible);
   const [taskName, onChangeTaskName] = useState('');
   const [taskDate, onChangeTaskDate] = useState('');
   const [taskStatus, onChangeTaskStatus] = useState('');
+
+  const handleAddTask = () => {
+    if (taskName && taskDate && taskStatus) {
+      const newTask = {
+        name: taskName,
+        date: taskDate,
+        status: taskStatus
+      };
+      addToList(newTask);
+    }
+  }
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
@@ -73,7 +86,7 @@ export default function HomeScreen({navigation}) {
             </View>
             <View style={styles.modalButtonRowStyle}>
               <Button title="Cancel" color='red' onPress={handleModal} />
-              <Button title="Add Task" color='green' onPress={handleModal} />
+              <Button title="Add Task" color='green' onPress={handleAddTask} />
             </View>
           </View>
         </Modal>
