@@ -3,7 +3,7 @@ import { Text, View } from "react-native"
 const MonthlyTasksScreen = () => {
     return (
         <View>
-            <Text>This Week's Tasks</Text>
+            <Text>This Month's Tasks</Text>
         </View>
     )
 }
