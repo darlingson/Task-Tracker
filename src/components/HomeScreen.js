@@ -46,7 +46,9 @@ export default function HomeScreen({navigation}) {
         </TouchableOpacity>
         <Modal isVisible={isModalVisible}>
           <View style={styles.modalStyle}>
-            <Text>Hello!</Text>
+            <View style={{alignItems: 'center'}}>
+              <Text style={{ fontSize: 40, fontWeight: 'bold'}} >Add Task</Text>
+            </View>
             <View>
             <TextInput
               style={styles.input}
