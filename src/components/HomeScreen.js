@@ -21,6 +21,10 @@ export default function HomeScreen({navigation}) {
         status: taskStatus
       };
       addToList(newTask);
+
+      onChangeTaskDate('');
+      onChangeTaskName('');
+      onChangeTaskStatus('');
     }
   }
   return (
