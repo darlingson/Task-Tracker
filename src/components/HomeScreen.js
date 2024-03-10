@@ -15,7 +15,7 @@ export default function HomeScreen({navigation}) {
         <Text style={styles.titleText}>Task Tracker</Text>
         <View style={styles.taskSect}>
           <Text style={styles.taskSectItem}>Today's Tasks</Text>
-          <Button style={styles.taskSectItem} title=">" onPress={() => navigation.navigate('WeeklyTasks')}/>
+          <Button style={styles.taskSectItem} title=">" onPress={() => navigation.navigate('TodaysTasks')}/>
         </View>
         <View style={styles.taskSect}>
           <Text style={styles.taskSectItem}>Upcoming Tasks for the week</Text>
