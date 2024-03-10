@@ -5,13 +5,30 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Modal from "react-native-modal";
 import { useState } from 'react';
 import {useList} from '../context/ListContext'
+import DateTimePicker from 'react-native-modal-datetime-picker';
 export default function HomeScreen({navigation}) {
   const {addToList} = useList();
   const [isModalVisible, setIsModalVisible] = useState(false);
   const handleModal = () => setIsModalVisible(!isModalVisible);
   const [taskName, onChangeTaskName] = useState('');
-  const [taskDate, onChangeTaskDate] = useState('');
+  const [taskDate, setTaskDate] = useState('');
   const [taskStatus, onChangeTaskStatus] = useState('');
+
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  // const [taskDate, setTaskDate] = useState('');
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+    setTaskDate(date.toISOString()); // Set the selected date in ISO format
+    hideDatePicker();
+  };
 
   const handleAddTask = () => {
     if (taskName && taskDate && taskStatus) {
@@ -22,7 +39,7 @@ export default function HomeScreen({navigation}) {
       };
       addToList(newTask);
 
-      onChangeTaskDate('');
+      setTaskDate('');
       onChangeTaskName('');
       onChangeTaskStatus('');
     }
@@ -76,9 +93,16 @@ export default function HomeScreen({navigation}) {
             />
             <TextInput
               style={styles.input}
-              onChangeText={onChangeTaskDate}
+              onChangeText={setTaskDate}
               value={taskDate}
               placeholder="Task Date"
+            />
+            <Button title="Set Date" onPress={showDatePicker} />
+            <DateTimePicker
+              isVisible={isDatePickerVisible}
+              mode="date"
+              onConfirm={handleConfirm}
+              onCancel={hideDatePicker}
             />
             <TextInput
               style={styles.input}
