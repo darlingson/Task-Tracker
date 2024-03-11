@@ -51,19 +51,16 @@ export default function HomeScreen({navigation}) {
         <TouchableHighlight style={styles.taskSect} onPress={() => navigation.navigate('TodaysTasks')}>
         <View>
           <Text style={styles.taskSectItem}>Today's Tasks</Text>
-          <Text style={styles.taskSectItem}></Text>
         </View>
       </TouchableHighlight>
       <TouchableHighlight style={styles.taskSect} onPress={() => navigation.navigate('WeeklyTasks')}>
         <View>
           <Text style={styles.taskSectItem}>Upcoming Tasks for the week</Text>
-          <Text style={styles.taskSectItem}></Text>
         </View>
       </TouchableHighlight>
       <TouchableHighlight style={styles.taskSect} onPress={() => navigation.navigate('MonthlyTasks')}>
         <View>
           <Text style={styles.taskSectItem}>Upcoming Tasks for the month</Text>
-          <Text style={styles.taskSectItem}></Text>
         </View>
       </TouchableHighlight>
         <TouchableOpacity
