@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button, SafeAreaView, StyleSheet, Text, TextInput, TouchableHighlight, TouchableOpacity, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Modal from "react-native-modal";
@@ -48,18 +48,24 @@ export default function HomeScreen({navigation}) {
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.container}>
         <Text style={styles.titleText}>Task Tracker</Text>
-        <View style={styles.taskSect}>
+        <TouchableHighlight style={styles.taskSect} onPress={() => navigation.navigate('TodaysTasks')}>
+        <View>
           <Text style={styles.taskSectItem}>Today's Tasks</Text>
-          <Button style={styles.taskSectItem} title=">" onPress={() => navigation.navigate('TodaysTasks')}/>
+          <Text style={styles.taskSectItem}></Text>
         </View>
-        <View style={styles.taskSect}>
+      </TouchableHighlight>
+      <TouchableHighlight style={styles.taskSect} onPress={() => navigation.navigate('WeeklyTasks')}>
+        <View>
           <Text style={styles.taskSectItem}>Upcoming Tasks for the week</Text>
-          <Button style={styles.taskSectItem} title=">" onPress={() => navigation.navigate('WeeklyTasks')}/>
+          <Text style={styles.taskSectItem}></Text>
         </View>
-        <View style={styles.taskSect}>
+      </TouchableHighlight>
+      <TouchableHighlight style={styles.taskSect} onPress={() => navigation.navigate('MonthlyTasks')}>
+        <View>
           <Text style={styles.taskSectItem}>Upcoming Tasks for the month</Text>
-          <Button style={styles.taskSectItem} title=">" onPress={() => navigation.navigate('MonthlyTasks')}/>
+          <Text style={styles.taskSectItem}></Text>
         </View>
+      </TouchableHighlight>
         <TouchableOpacity
           style={{ 
             borderWidth: 1, 
