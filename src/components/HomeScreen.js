@@ -82,7 +82,7 @@ export default function HomeScreen({navigation}) {
         > 
         <Text style={{ color: "white" }}>+</Text> 
         </TouchableOpacity>
-        <Modal isVisible={isModalVisible}>
+        <Modal isVisible={isModalVisible} transparent={true} backdropOpacity={0.5}>
           <View style={styles.modalStyle}>
             <View style={{alignItems: 'center'}}>
               <Text style={{ fontSize: 40, fontWeight: 'bold'}} >Add Task</Text>
@@ -167,10 +167,11 @@ const styles = StyleSheet.create({
   modalStyle :{
     flex : 1,
     width: '100%',
+    maxHeight: 500,
     justifyContent:'center',
     borderColor:'black',
     borderWidth:1,
-    backgroundColor:'#1178d8'
+    backgroundColor:'#1178aa'
   },
   modalButtonRowStyle:{
     flexDirection: 'row', // Arrange items horizontally
