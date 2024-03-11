@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     marginStart : 20,
   },
   taskSectItem :{
-    width: '48%', // Set each item's width to take half of the screen
+    width: '90%', // Set each item's width to take half of the screen
     // borderWidth: 1,
     // borderColor: 'gray',
     padding: 10,
