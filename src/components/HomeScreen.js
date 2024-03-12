@@ -112,6 +112,7 @@ export default function HomeScreen({navigation}) {
               onConfirm={handleConfirm}
               onCancel={hideDatePicker}
             />
+            <View style={styles.picker}>
               <Picker
                 selectedValue={taskStatus}
                 style={styles.picker}
@@ -123,6 +124,7 @@ export default function HomeScreen({navigation}) {
                 <Picker.Item label="In Progress" value="In Progress" />
                 <Picker.Item label="Postponed" value="Postponed" />
               </Picker>
+            </View>
             {/* <TextInput
               style={styles.input}
               onChangeText={onChangeTaskStatus}
@@ -205,5 +207,9 @@ const styles = StyleSheet.create({
   },
   dateRow: {
     flexDirection: 'row',
+  },
+  picker: {
+    borderColor: 'black',
+    borderWidth: 1,
   }
 });
