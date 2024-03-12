@@ -94,13 +94,15 @@ export default function HomeScreen({navigation}) {
               value={taskName}
               placeholder='Task Name'
             />
-            <TextInput
-              style={styles.input}
-              onChangeText={setTaskDate}
-              value={taskDate}
-              placeholder="Task Date"
-            />
-            <Button title="Set Date" onPress={showDatePicker} />
+            <View style={styles.dateRow}>
+              <TextInput
+                style={styles.input}
+                onChangeText={setTaskDate}
+                value={taskDate}
+                placeholder="Task Date"
+              />
+              <Button title="Set Date" onPress={showDatePicker} />
+            </View>
             <DateTimePicker
               isVisible={isDatePickerVisible}
               mode="date"
@@ -187,4 +189,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
+  dateRow: {
+    flexDirection: 'row',
+  }
 });
