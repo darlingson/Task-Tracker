@@ -26,7 +26,9 @@ export default function HomeScreen({navigation}) {
   };
 
   const handleConfirm = (date) => {
-    setTaskDate(date.toISOString()); // Set the selected date in ISO format
+    // setTaskDate(date.toISOString()); // Set the selected date in ISO format
+    var theDate = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
+    setTaskDate(theDate.toString());
     hideDatePicker();
   };
 
