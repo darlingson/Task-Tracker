@@ -6,6 +6,7 @@ import Modal from "react-native-modal";
 import { useState } from 'react';
 import {useList} from '../context/ListContext'
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import {Picker} from '@react-native-picker/picker';
 export default function HomeScreen({navigation}) {
   const {addToList} = useList();
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -111,13 +112,24 @@ export default function HomeScreen({navigation}) {
               onConfirm={handleConfirm}
               onCancel={hideDatePicker}
             />
-            <TextInput
+              <Picker
+                selectedValue={taskStatus}
+                style={styles.picker}
+                onValueChange={(itemValue, itemIndex) =>
+                  onChangeTaskStatus(itemValue)
+                }>
+                <Picker.Item label="Todo" value="To do" />
+                <Picker.Item label="Complete" value="Complete" />
+                <Picker.Item label="In Progress" value="In Progress" />
+                <Picker.Item label="Postponed" value="Postponed" />
+              </Picker>
+            {/* <TextInput
               style={styles.input}
               onChangeText={onChangeTaskStatus}
               value={taskStatus}
               placeholder="Task Status"
               keyboardType="default"
-            />
+            /> */}
             </View>
             <View style={styles.modalButtonRowStyle}>
               <Button title="Cancel" color='red' onPress={handleModal} />
